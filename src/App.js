@@ -1,7 +1,17 @@
+import { useState } from "react";
+import "./App.css";
+
 export default function App() {
-    return (
-        <div>
-            <h1>Hello World</h1>
-        </div>
-    );
-};
+  const [boolean, setBoolean] = useState(true);
+
+  const flip = () => {
+    setBoolean(!boolean);
+  };
+
+  return (
+    <div>
+      <section className={boolean ? "room lit" : "room dark"}></section>
+      <button onClick={flip}> {boolean ? "dark" : "light"} </button>
+    </div>
+  );
+}
